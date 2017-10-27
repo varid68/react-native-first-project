@@ -11,7 +11,7 @@ export default class CustomHeader extends React.Component {
       + 'yakin ingin menghapus semua waktu yang tersimpan?',
       [
         { text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel' },
-        { text: 'OK', onPress: () => AsyncStorage.removeItem('saved').then(() => this.setState({ saved: null })) },
+        { text: 'OK', onPress: () => AsyncStorage.removeItem('saved').then(() => this.props.get()) },
       ],
       { cancelable: false }
     );
