@@ -48,6 +48,7 @@ export default class SavePage extends React.Component {
     return (
       <Container>
         <Header
+          get={this.getStorage.bind(this)}
           pop={this.pop.bind(this)} />
 
         {saved != null
