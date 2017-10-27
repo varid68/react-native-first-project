@@ -30,7 +30,7 @@ ada di play store bernama TerbitTerbenam yang dibuat Kodelokus Cipta Aplikasi.
  
 
  ## App preview
- <img src="https://firebasestorage.googleapis.com/v0/b/ionic2-1afad.appspot.com/o/terbit.gif?alt=media&token=3a37ecc8-7cb1-4e75-bb46-8c6b17bdcdfa" alt="Preview" height=500>
+ <img src="https://firebasestorage.googleapis.com/v0/b/ionic2-1afad.appspot.com/o/react-native.gif?alt=media&token=56ba0174-abdf-4719-98ee-deb5e3260da7" alt="Preview" height=500>
 
 
  ## Download apk
