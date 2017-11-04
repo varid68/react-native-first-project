@@ -125,12 +125,14 @@ export default class ModalContent extends React.Component {
           </Header>
 
           <View style={{ backgroundColor: '#fff', padding: 10 }}>
-            <Text style={{ color: '#009688' }}>Waktu Terbit Terbenam</Text>
-            <Text style={{ fontSize: 16 }}>{this.state.datas.date}</Text>
+            <Text style={{ color: '#009688', fontSize: 16 }}>Tanggal Waktu Terbit Terbenam</Text>
+            <Text>{this.state.datas.date}</Text>
+            <Text style={{ color: '#009688', fontSize: 16, paddingTop: 5 }}>Lokasi Pengecekan Waktu</Text>
+            <Text>{this.state.datas.address}</Text>
             <View style={styles.lineView}>
               <Text style={styles.line}></Text>
             </View>
-            <Text style={{ marginTop: 20 }}>Waktu Matahari Terbit</Text>
+            <Text style={{ marginTop: 15 }}>Waktu Matahari Terbit</Text>
             <Text style={{ color: '#000' }}>{this.displayTime('sunrise')}</Text>
 
             <Text style={{ marginTop: 15 }}>Waktu Matahari Terbenam</Text>
