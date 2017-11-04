@@ -11,7 +11,8 @@ export default class SavePagelist extends React.Component {
     super(props);
 
     this.state = {
-      modalVisible: false
+      modalVisible: false,
+      indexList: '',
     };
   }
 
@@ -31,53 +32,58 @@ export default class SavePagelist extends React.Component {
   }
 
 
-  setModalVisible(visible) {
+  setModalVisible(visible, indexList) {
     this.setState({
-      modalVisible: visible
+      modalVisible: visible,
+      indexList: indexList,
     });
   }
 
 
   render() {
-    let { date } = this.props.item;
-    let { sunrise, sunset } = this.props.item.time;
+    const { datas } = this.props;
 
     return (
-      <List>
-        <ListItem
-          button
-          avatar
-          style={styles.list}
-          onPress={() => this.setModalVisible(true)}>
+      <View>
+        <List
+          dataArray={datas}
+          renderRow={(data, x, index) =>
+            <ListItem
+              button
+              avatar
+              style={styles.list}
+              onPress={() => this.setModalVisible(true, index)}>
 
-          <Left>
-            <View style={styles.boxColor}>
-              <Text style={styles.dateInBox}>{this.getDay(date)}</Text>
-              <Text style={styles.monthInBox}>{this.getMonth(date)}</Text>
-            </View>
-          </Left>
-          <Body>
-            <Text style={styles.titleList}>Catatan waktu untuk {date}</Text>
-            <View style={styles.descTime}>
-              <View style={{ flex: 0 }}>
-                <Text style={{ paddingBottom: 2 }} note>waktu terbit </Text>
-                <Text note>waktu terbenam</Text>
-              </View>
-              <View style={{ flex: 0 }}>
-                <Text style={{ fontSize: 15, marginLeft: -10, color: '#333' }}>{sunrise}</Text>
-                <Text style={{ fontSize: 15, color: '#333', marginLeft: 10 }}>{sunset}</Text>
-              </View>
-            </View>
-          </Body>
-        </ListItem>
+              <Left>
+                <View style={styles.boxColor}>
+                  <Text style={styles.dateInBox}>{this.getDay(data.date)}</Text>
+                  <Text style={styles.monthInBox}>{this.getMonth(data.date)}</Text>
+                </View>
+              </Left>
+              <Body>
+                <Text style={styles.titleList}>Catatan waktu untuk {data.date}</Text>
+                <View style={styles.descTime}>
+                  <View style={{ flex: 0 }}>
+                    <Text style={{ paddingBottom: 2 }} note>waktu terbit </Text>
+                    <Text note>waktu terbenam</Text>
+                  </View>
+                  <View style={{ flex: 0 }}>
+                    <Text style={{ fontSize: 15, marginLeft: -10, color: '#333' }}>{data.time.sunrise}</Text>
+                    <Text style={{ fontSize: 15, color: '#333', marginLeft: 10 }}>{data.time.sunset}</Text>
+                  </View>
+                </View>
+              </Body>
+            </ListItem>}
+        />
 
         <ModalContent
           modalVisible={this.state.modalVisible}
           closeModal={this.setModalVisible.bind(this)}
-          getStorage={this.props.getStorage}
-          terbit={this.props.item} />
+          indexList={this.state.indexList}
+          datas={datas}
+          getStorage={this.props.getStorage} />
 
-      </List>
+      </View>
     );
   }
 
