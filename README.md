@@ -34,4 +34,4 @@ ada di play store bernama TerbitTerbenam yang dibuat Kodelokus Cipta Aplikasi.
 
 
  ## Download apk
-<a href="https://drive.google.com/open?id=0Bxp6Hpy2uQydQUxXMDJWZGdUcmM" target="_blank">Downlaod from Google drive</a>
+<a href="https://drive.google.com/open?id=0Bxp6Hpy2uQydc0N3RU1NUGVzckk" target="_blank">Downlaod from Google drive</a>
