@@ -1,6 +1,6 @@
 import React from 'react';
-import { Container } from 'native-base';
-import { View, Text, AsyncStorage } from 'react-native';
+import { Container, Content } from 'native-base';
+import { View, Text, AsyncStorage, Dimensions } from 'react-native';
 
 // IMPORT COMPONENTS
 import Header from './components/CustomHeader';
@@ -43,7 +43,8 @@ export default class SavePage extends React.Component {
 
 
   render() {
-    let { saved } = this.state;
+    const { saved } = this.state;
+    const height = Dimensions.get('window').height - 70;
 
     return (
       <Container>
@@ -51,19 +52,16 @@ export default class SavePage extends React.Component {
           get={this.getStorage.bind(this)}
           pop={this.pop.bind(this)} />
 
-        {saved != null
-          ? <View>
-            {saved.map((item, key) =>
-              <SavePageList
-                item={item}
-                key={key}
-                getStorage={this.getStorage.bind(this)} />
-            )}
-          </View>
-          : <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text style={{ textAlign: 'center' }}>Belum ada data untuk ditampilkan</Text>
-          </View>
-        }
+        <Content>
+          {saved != null
+            ? <SavePageList
+              datas={saved}
+              getStorage={this.getStorage.bind(this)} />
+            : <View style={{ flex: 1, justifyContent: 'center', height: height }}>
+              <Text style={{ textAlign: 'center' }}>Belum ada data untuk ditampilkan</Text>
+            </View>
+          }
+        </Content>
       </Container>
     );
   }
